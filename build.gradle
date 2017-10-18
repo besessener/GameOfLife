@@ -1,0 +1,24 @@
+apply plugin: 'groovy'
+apply plugin: 'java'
+apply plugin: 'idea'
+
+sourceCompatibility = 1.8
+
+repositories {
+   maven {
+      url "http://mvn-nexus.conti.de:8081/nexus/content/groups/public/"
+   }
+}
+
+dependencies {
+   compile 'org.codehaus.groovy:groovy-all:2.4.7'
+   testCompile(
+      'junit:junit:4.12',
+      'org.codehaus.groovy:groovy-all:2.4.4',
+      'org.spockframework:spock-core:1.0-groovy-2.4',
+   )
+}
+
+task wrapper(type: Wrapper) {
+   gradleVersion = '3.3'
+}

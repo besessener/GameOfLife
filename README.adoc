@@ -1,0 +1,14 @@
+# How to start
+
+* Run `gradlew idea` to generate an Idea project
+* Open GameOfLife.ipr
+* Start hacking
+
+# Task
+
+Implement Conway's Game of Life: https://de.wikipedia.org/wiki/Conways_Spiel_des_Lebens
+
+# Constraints
+
+* Field size is unlimited
+* Use of arrays and collection classes (List, Vector, ...) is *not* allowed

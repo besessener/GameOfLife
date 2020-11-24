@@ -1,15 +1,16 @@
 package de.conti.gameoflife
 
 import javax.swing.JFrame
+import javax.swing.JPanel
 import javax.swing.WindowConstants
+import java.awt.BorderLayout
 import java.awt.Color
 import java.awt.Dimension
 import java.awt.Graphics
-import java.awt.event.WindowEvent
 
-class GameOfLife extends JFrame{
+class GameOfLife extends JPanel{
 	static Cell[][] board
-	static def boardSize = 100
+	static def boardSize = 200
 
 	static void main(String[] args) {
 		// initialize
@@ -57,20 +58,27 @@ class GameOfLife extends JFrame{
 			}
 		}
 
-		GameOfLife frame = new GameOfLife()
-		frame.setSize(boardSize + 10, boardSize + 45)
-		frame.setPreferredSize(new Dimension(boardSize - 10, boardSize + 45))
-		frame.setVisible(true)
-		frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+		JFrame frame = new JFrame("GoL");
+		JPanel panel = new GameOfLife()
+		frame.add(panel, BorderLayout.CENTER);
 
+		frame.setSize(boardSize + 10, boardSize + 38)
+		frame.setPreferredSize(new Dimension(boardSize - 10, boardSize + 38))
+		frame.pack()
+		frame.setVisible(true)
+		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
+		while (true) {
+			panel.repaint()
+		}
 	}
 
 	@Override
-	void paint(Graphics g) {
-		super.paint(g);
+	void paintComponent(Graphics g) {
+		super.paintComponent (g)
 
 		def nextIteration = [:]
-		while (true) {
+
 			for (int y = 0; y < boardSize; y++) {
 				for (int x = 0; x < boardSize; x++) {
 					def cell = board[y][x]
@@ -84,14 +92,13 @@ class GameOfLife extends JFrame{
 					cell.alive = nextIteration[cell] ? 1 : 0
 
 					if (nextIteration[cell]) {
-						g.setColor(Color.BLACK);
+						g.setColor(Color.BLACK)
 					} else {
-						g.setColor(Color.WHITE);
+						g.setColor(Color.WHITE)
 					}
 
-					g.fillRect(x + 10, y + 35, 1, 1);
+					g.fillRect(x, y, 1, 1)
 				}
 			}
-		}
 	}
 }

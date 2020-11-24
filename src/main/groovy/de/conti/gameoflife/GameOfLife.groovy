@@ -5,6 +5,7 @@ import javax.swing.WindowConstants
 import java.awt.Color
 import java.awt.Dimension
 import java.awt.Graphics
+import java.awt.event.WindowEvent
 
 class GameOfLife extends JFrame{
 	static Cell[][] board
@@ -60,7 +61,7 @@ class GameOfLife extends JFrame{
 		frame.setSize(boardSize + 10, boardSize + 45)
 		frame.setPreferredSize(new Dimension(boardSize - 10, boardSize + 45))
 		frame.setVisible(true)
-		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 
 	}
 

@@ -1,14 +1,7 @@
 package de.conti.gameoflife
 
 class Cell {
-	Cell c1
-	Cell c2
-	Cell c3
-	Cell c4
-	Cell c5
-	Cell c6
-	Cell c7
-	Cell c8
+	Cell c1, c2, c3, c4, c5, c6, c7, c8
 	boolean alive
 	private numberOfNeighbors = 0
 

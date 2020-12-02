@@ -18,4 +18,14 @@ class Test extends Specification {
          game == null
    }
 
+   def "Rule 1 Any live cell with fewer than two live neighbours dies, as if caused by underpopulation."() {
+      given:
+          Cell cell = new Cell()
+
+      when:
+          def isAlive = cell.isAliveNextRound()
+
+      then:
+          !isAlive
+   }
 }

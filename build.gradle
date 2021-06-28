@@ -5,9 +5,7 @@ apply plugin: 'idea'
 sourceCompatibility = 1.8
 
 repositories {
-   maven {
-      url "http://mvn-nexus.conti.de:8081/nexus/content/groups/public/"
-   }
+   jcenter()
 }
 
 dependencies {
